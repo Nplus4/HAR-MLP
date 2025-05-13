@@ -1,22 +1,32 @@
-# Human Activity Recognition using Deep Learning
+# Human Activity Recognition with MLP (PyTorch)
 
-This project uses the [UCI HAR Dataset](https://archive.ics.uci.edu/ml/datasets/human+activity+recognition+using+smartphones) to classify human activities from smartphone sensor data using a PyTorch-based multi-layer perceptron (MLP).
+This project implements a Multi-Layer Perceptron (MLP) in PyTorch to classify human activities from smartphone sensor data (UCI HAR Dataset). The model achieves 95.8% test accuracy after hyperparameter optimization with Optuna.
 
 ## Features
-- Preprocessing: Standardization, Label Encoding
-- Model: 3-layer MLP with Batch Normalization, Dropout, ReLU activation
-- Training: Early stopping based on validation loss
-- Evaluation: Confusion matrix, classification report, test accuracy
-- Visualization: Training/Validation loss plot, Confusion matrix heatmap
+
+- PyTorch implementation of MLP with BatchNorm and Dropout
+- Hyperparameter optimization using Optuna with 3-fold CV
+- Complete reproducible pipeline (seeding for all random operations)
+- Early stopping and model checkpointing
+- Detailed evaluation metrics (confusion matrix, classification report)
+- Training/validation loss visualization
 
 ## Dataset
-- The UCI Human Activity Recognition dataset contains accelerometer and gyroscope readings from 30 subjects performing 6 activities.
+
+UCI Human Activity Recognition (HAR) Dataset:
+- 6 activities (Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying)
+- 561 features from smartphone accelerometer and gyroscope data
+- 7,352 training samples, 2,947 test samples
+
+## Results
+
+- Test Accuracy: 95.8%
+- Best Hyperparameters:
+  - Learning Rate: 2e-4
+  - Weight Decay: 2e-7
+  - Architecture: 2 hidden layers (128 units each)
+  - Dropout Rates: 0.19 (layer 1), 0.14 (layer 2)
 
 ## Requirements
-```bash
-torch
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
+
+See [requirements.txt](requirements.txt)
